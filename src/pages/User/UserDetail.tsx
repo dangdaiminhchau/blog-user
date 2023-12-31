@@ -6,6 +6,7 @@ import { useGetCategoriesListQuery } from "../../store/api/categoriesApi"
 import { useEffect, useState } from "react"
 import UpdatePost from "./components/UpdatePost"
 import { IContent } from "../../store/type/content.type"
+import { useGetUserQuery } from "../../store/api/userApi"
 
 const UserDetail = () => {
     const [notification, contextNotification] = antdNotification.useNotification()
@@ -15,6 +16,10 @@ const UserDetail = () => {
     const [currrentItem, setCurrrentItem] = useState<IContent>()
     const { data: contentList, isFetching: isFetchingContent } = useGetContentOfUserQuery()
     const { data: cateList } = useGetCategoriesListQuery()
+    const { data: user } = useGetUserQuery('user', {
+        pollingInterval: 900000,
+    })
+
     const [deleteContent] = useDeleteContentMutation()
 
     const onDeletePost = async (id: number) => {
@@ -43,7 +48,7 @@ const UserDetail = () => {
             <Flex gap={100} className="w-full p-24" justify="center">
                 <div>
                     <div className="text-4xl font-playfair font-bold hover:cursor-pointer justify-end text-left">
-                        <span className="link link-underline link-underline-black text-black">Hi there, I'm Jack 👋</span>
+                        <span className="link link-underline link-underline-black text-black">Hi there, I'm {user && user.display_name} 👋</span>
                     </div>
                     <div className="text-lg font-playfair mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                         Phasellus malesuada nisi tellus, non imperdiet nisi tempor at.

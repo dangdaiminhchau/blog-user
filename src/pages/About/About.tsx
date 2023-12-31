@@ -4,7 +4,7 @@ import { useGetAboutListQuery } from "../../store/api/aboutApi"
 
 const About = () => {
     const { data: aboutList, isFetching: isFetchingAboutList } = useGetAboutListQuery()
-
+    console.log(aboutList)
     return (
         <div>
             <div className="w-full bg-green1 p-8 pl-16 mt-8">
@@ -26,21 +26,21 @@ const About = () => {
                                     <div className="col-lg-6 col-sm-12">
                                         <div className="about-content">
                                             <h4 className="mb-1 theme font-weight-normal">About Us</h4>
-                                            <h2>{aboutList[2].name}</h2>
+                                            <h2>{aboutList[1].name}</h2>
                                             <p className="mb-3 font-playfair text-lg">{aboutList[2].content}</p>
                                             <div className="about-imagelist">
                                                 <ul className="d-flex justify-content-between">
                                                     <li className="me-2">
-                                                        <img src={`${aboutList[2].assetList[0].assetURL}`} alt="" />
+                                                        <img src={`${aboutList[1].assetList[0].assetURL}`} alt="" />
                                                     </li>
                                                     <li className="me-2">
-                                                        <img src={`${aboutList[2].assetList[1].assetURL}`} alt="" />
+                                                        <img src={`${aboutList[1].assetList[1].assetURL}`} alt="" />
                                                     </li>
                                                     <li className="me-2">
-                                                        <img src={`${aboutList[2].assetList[2].assetURL}`} alt="" />
+                                                        <img src={`${aboutList[1].assetList[2].assetURL}`} alt="" />
                                                     </li>
                                                     <li>
-                                                        <img src={`${aboutList[2].assetList[3].assetURL}`} alt="" />
+                                                        <img src={`${aboutList[1].assetList[3].assetURL}`} alt="" />
                                                     </li>
                                                 </ul>
                                             </div>
@@ -48,7 +48,7 @@ const About = () => {
                                     </div>
                                     <div className="col-lg-6 col-sm-12">
                                         <div className="about-image">
-                                            <img src={`${aboutList[2].assetList[4].assetURL}`} alt="" />
+                                            <img src={`${aboutList[1].assetList[4].assetURL}`} alt="" />
                                         </div>
                                     </div>
                                 </div>
@@ -62,7 +62,7 @@ const About = () => {
                                 <div className="row d-flex align-items-center justify-content-between">
                                     <div className="col-lg-6 col-sm-12">
                                         <div className="about-content">
-                                            <h2 className="theme">{aboutList[1].name}</h2>
+                                            <h2 className="theme">{aboutList[4].name}</h2>
                                             <p className="mb-2 font-playfair text-lg">{aboutList[1].content}</p>
                                         </div>
                                     </div>
@@ -70,10 +70,10 @@ const About = () => {
                                         <div className="about-image-main">
                                             <div className="row">
                                                 <div className="col-lg-6 col-md-6 mt-4 mb-4">
-                                                    <img src={aboutList[1].assetList[0].assetURL} alt="" />
+                                                    <img src={aboutList[4].assetList[0].assetURL} alt="" />
                                                 </div>
                                                 <div className="col-lg-6 col-md-6">
-                                                    <img src={aboutList[1].assetList[1].assetURL} alt="" />
+                                                    <img src={aboutList[4].assetList[1].assetURL} alt="" />
                                                 </div>
                                             </div>
                                         </div>
